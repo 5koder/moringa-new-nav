@@ -1,0 +1,51 @@
+/* General - START */
+#mce .clr_0,
+#mce .clr_1,
+#mce .clr_5,
+#mce .clr_10,
+#mce .clr_15,
+#mce .clr_20,
+#mce .clr_30,
+#mce .clr_50,
+#mce .clr_80,
+#mce .clr_100,
+#mce .clr_hr {backmtound:none; clear:both !important; float:none !important; position:relative; padding:0 !important; margin:0 !important; display:block !important}
+#mce .clr_hr,
+#mce .clr_0 {height:0 !important;}
+#mce .clr_1 {height:1px !important}
+#mce .clr_5 {height:5px !important}
+#mce .clr_10 {height:10px !important}
+#mce .clr_15 {height:15px !important}
+#mce .clr_20 {height:20px !important}
+#mce .clr_30 {height:30px !important}
+#mce .clr_50 {height:50px !important}
+#mce .clr_80 {height:80px !important}
+#mce .clr_100 {height:100px !important}
+#mce .clr_hr {border-bottom:1px solid #CCC !important;}
+#mce .clr_hr_blue {border-bottom:1px solid rgb(160, 208, 235) !important;}
+#mce .center {text-align: center !important}
+#mce .float-right {float: right;}
+
+/* Signup popup */
+.mce .popup-noscrollable {
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+.mce .popup-scrollable {
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+.mce .popup-top-fixed {
+	position: fixed;
+}
+.mce .popup-caption {
+	position: absolute;
+	margin: 0 0 1rem 3rem;
+}
+.mce .popup-figure {position: relative;}
+.mce .popup-caption.valign-top {top: 15%;}
+.mce .popup-caption.valign-middle {top: 50%;}
+.mce .popup-caption.valign-bottom {bottom: 10%;}
+.mce .popup-caption.halign-left {left: 5%;}
+.mce .popup-caption.halign-middle {left: 50%;}
+.mce .popup-caption.halign-right {right: 15%;}

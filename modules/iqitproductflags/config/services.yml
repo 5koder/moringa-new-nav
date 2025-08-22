@@ -1,0 +1,101 @@
+services:
+  _defaults: { public: true }
+
+  # installer
+  prestashop.module.iqitproductflags.iqit_product_flag_installer:
+    class: 'PrestaShop\Module\IqitProductFlags\Database\IqitProductFlagInstaller'
+    arguments:
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'
+
+
+  #creation/edition form
+  prestashop.module.iqitproductflags.form.identifiable_object.data_provider.iqit_product_flag_form_data_provider:
+    class: 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagFormDataProvider'
+    arguments:
+      - '@doctrine.orm.default_entity_manager'
+      - '@prestashop.adapter.shop.context'
+
+  prestashop.module.iqitproductflags.form.identifiable_object.builder.iqit_product_flag_form_builder:
+    class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\FormBuilder'
+    factory: 'prestashop.core.form.builder.form_builder_factory:create'
+    arguments:
+      - 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagType'
+      - '@prestashop.module.iqitproductflags.form.identifiable_object.data_provider.iqit_product_flag_form_data_provider'
+
+  prestashop.module.iqitproductflags.form.identifiable_object.data_handler.iqit_product_flag_form_data_handler:
+    class: 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagFormDataHandler'
+    arguments:
+      - '@doctrine.orm.default_entity_manager'
+      - '@prestashop.core.admin.lang.repository'
+
+  prestashop.module.iqitproductflags.form.identifiable_object.handler.iqit_product_flag_form_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Handler\FormHandler'
+    factory: 'prestashop.core.form.identifiable_object.handler.form_handler_factory:create'
+    arguments:
+      - '@prestashop.module.iqitproductflags.form.identifiable_object.data_handler.iqit_product_flag_form_data_handler'
+
+  #grid services
+  prestashop.module.iqitproductflags.grid.definition.factory.iqit_product_flags:
+    class: 'PrestaShop\Module\IqitProductFlags\Grid\Definition\Factory\IqitProductFlagGridDefinitionFactory'
+    parent: 'prestashop.core.grid.definition.factory.abstract_grid_definition'
+    public: true
+
+  prestashop.module.iqitproductflags.grid.query.iqit_product_flag_query_builder:
+    class: 'PrestaShop\Module\IqitProductFlags\Grid\Query\IqitProductFlagQueryBuilder'
+    parent: 'prestashop.core.grid.abstract_query_builder'
+    public: true
+    arguments:
+      - '@prestashop.core.query.doctrine_search_criteria_applicator'
+      - '@prestashop.adapter.shop.context'
+      - "@=service('prestashop.adapter.legacy.context').getContext().language.id"
+
+
+  prestashop.module.iqitproductflags.grid.data.factory.iqit_product_flag_data_factory:
+    class: 'PrestaShop\PrestaShop\Core\Grid\Data\Factory\DoctrineGridDataFactory'
+    arguments:
+      - '@prestashop.module.iqitproductflags.grid.query.iqit_product_flag_query_builder'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.core.grid.query.doctrine_query_parser'
+      - 'block_content'
+
+  prestashop.module.iqitproductflags.grid.iqit_product_flag_grid_factory:
+    class: 'PrestaShop\PrestaShop\Core\Grid\GridFactory'
+    arguments:
+      - '@prestashop.module.iqitproductflags.grid.definition.factory.iqit_product_flags'
+      - '@prestashop.module.iqitproductflags.grid.data.factory.iqit_product_flag_data_factory'
+      - '@prestashop.core.grid.filter.form_factory'
+      - '@prestashop.core.hook.dispatcher'
+
+  # config form
+  prestashop.module.iqitproductflags.iqit_product_flag.configuration:
+    class: 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagDataConfiguration'
+    arguments:
+      - '@prestashop.adapter.legacy.configuration'
+      - '@prestashop.adapter.shop.context'
+      - '@prestashop.adapter.multistore_feature'
+
+  prestashop.module.iqitproductflags.iqit_product_flag_configuration.form_provider:
+    class: 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagConfigurationFormDataProvider'
+    arguments:
+      - '@prestashop.module.iqitproductflags.iqit_product_flag.configuration'
+
+  prestashop.module.iqitproductflags.iqit_product_flag_configuration.form_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.iqitproductflags.iqit_product_flag_configuration.form_provider'
+      - 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagConfigurationType'
+      - 'ConfigurationForm'
+
+  # content block form
+  prestashop.module.iqitproductflags.form.iqit_product_flag_type:
+    class: 'PrestaShop\Module\IqitProductFlags\Form\IqitProductFlagType'
+    parent: 'form.type.translatable.aware'
+    autowire: true
+    arguments:
+      - '@=service("prestashop.adapter.multistore_feature").isUsed()'
+    public: true
+    tags:
+      - { name: form.type }

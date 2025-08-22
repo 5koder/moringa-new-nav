@@ -1,0 +1,451 @@
+Change history for MailChimp E-Commerce Automation
+----------------------------------------------------------------------
+============================
+Version 2.0.6 (05/02/2021) |
+============================
+
+Added
+-----
+- Change module min compliancy
+- Made optionnal the prefix on voucher code configuration
+- Update voucher code generation to make it more beautiful
+- Hide unused data on the back-office
+- Handle restriction on product for voucher code
+
+Fixed
+-----
+- Fix scroll on voucher code popup form
+
+============================
+Version 2.0.5 (09/12/2020) |
+============================
+- Updated module logo
+
+Fixed
+-----
+- Use Front controller according to the prestashop validation
+
+Added
+-----
+
+============================
+Version 2.0.4 (01/10/2020) |
+============================
+
+Fixed
+-----
+- Customer was placed again in pending when he updated the information on the account
+- Update on address on the customer account
+- Ajax call on newsletter block for newsletter subscription
+- Bad call function for newslettre code core 
+- Display for voucher code and removed useless display data
+- Use case with campaign name with quote
+- The throw error message was displayed for the final customer
+
+Added
+-----
+- Option to export product without tax
+
+
+============================
+Version 2.0.3 (02/08/2019) |
+============================
+
+Fixed
+-----
+- Bug fix around the customer update or forgotten password feature, wrong test on the variable $customer
+
+Added
+-----
+- N/A
+
+============================
+Version 2.0.1 (30/07/2019) |
+============================
+
+Fixed
+-----
+- Bug fix on the member default status about the old lists migration (only when the module is upgraded from 1.2.6 to 2.0.0)
+
+Added
+-----
+- N/A
+
+
+====================================
+Version 2.0.0 (03/07/2019) - MAJOR |
+====================================
+Added
+-----
+- Redesign of the module
+
+
+===========================
+Version 1.2.6 (01/10/2018)|
+===========================
+Added
+-----
+- A test to replace the character '@' into the excluded domain names
+
+Fixed
+-----
+- Voucher list to get the good link into the clipboard according to the language and the automation voucher
+- the automation ID created from the name, and so some specific characters made a JS issue, the id is only created with alphabetic chars and dash
+
+Files
+----
+- lib/admin/AdminUpdate.php
+- views/tùemplates/admin/vouchers.tpl
+- views/tùemplates/admin/voucher-form.tpl
+
+
+===========================
+Version 1.2.5 (31/05/2018)|
+===========================
+Added
+-----
+- A cron to update products in bulk and not get time out from the MC API
+- An option to deactivate the synching of the product description
+- The Double Opt-in option to make your customers receiving a newsletter confirmation e-mail
+
+Fixed
+-----
+- The test on the "newsletter" and "optin" options during the account creation processs
+
+Files
+----
+- N/A
+
+
+===========================
+Version 1.2.4 (20/02/2018)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- A variable name was badly formatted, and make an issue in the construction of the checkout URL for PS 1.7
+
+Files
+----
+- /index.php
+
+===========================
+Version 1.2.3 (04/12/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- The way to keep the connected sites values and the custom MC newsletter form, a merge was badly done and the custom MC form wasn't registered well once we reload the main module's configuration page.
+
+Files
+----
+- lib/admin/AdminDisplay.php
+
+
+===========================
+Version 1.2.2 (24/11/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- the custom voucher automation name encoding that made an issue around the JQuery Fancybox as the ID selector doesn't support an HTML encoding in the name (example with "Cumpleaños" in spansih, the HTML encoding encoded the ñ and created a bad interpreted expression)
+
+Files
+----
+- views/templates/admin/vouchers.tpl
+
+
+===========================
+Version 1.2.1 (24/11/2017)|
+===========================
+Added
+-----
+- System to connect many lists / stores associations on the same MailChimp account for the feature "connected sites"
+
+Fixed
+-----
+- The system to send the verification connect site code via the back-office and not overload the front-office
+- Displaying at the same tim the MC custom newsletter form and the MC JavaScript code for product retargeting
+
+Files
+----
+- lib/*
+- views/templates/admin/*
+- views/templates/front/*
+- views/templates/hook/*
+
+
+===========================
+Version 1.2.0 (10/11/2017)|
+===========================
+Added
+-----
+- The entire system of incentive vouchers to allow the merchants to offer vouchers to their customers via some automation template e-mails of MailChimp.
+- Full system to subscribe people who register their e-mail via the block newsletter to your matching MC list
+- Feature to include and display the MC newsletter custom form
+
+Fixed
+-----
+- N/A
+
+Files
+----
+- lib/*
+- views/templates/admin/*
+- views/templates/front/*
+- views/templates/hook/*
+
+
+===========================
+Version 1.1.7 (25/10/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- The cart URL for the abandoned cart, the $iCustomerId was changed and it made an issue around the link.
+
+Files
+----
+- lib/Tools.php
+- lib/mailchimp/data-format_class.php
+
+
+===========================
+Version 1.1.6 (18/10/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- Missing key "site_foreign_id" and the exception is caught by the main class hook controller and displays the exception message whereas it shouldn't
+- The vendor key empty could make error via the batches operation for products synching
+- the customer address, we added a test to check if the address if empty or not before sending as synchronized key
+
+Files
+----
+- lib/hook/hook-base_class.php
+- lib/hook/hook-display_class.php
+- lib/hook/hook-action_class.php
+
+
+===========================
+Version 1.1.5 (11/10/2017)|
+===========================
+Added
+-----
+- Connected site verification
+- Google product remarketing
+- Pop-up form feature
+
+Fixed
+-----
+- N/A
+
+Files
+----
+- lib/mailchimp/ecommerce-connected-sites_class.php
+- lib/hook/hook-display_class.php
+- lib/hook/hook-action_class.php
+- conf/common.php
+- views/templates/hook/footer.tpl
+
+
+
+===========================
+Version 1.1.4 (18/09/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- Bug fix for the price of the product when there isn't any combination in PS but we have to set a default combination for MailChimp, then the getPriceStatic() function got a wrong product attribute ID as parameter
+
+Files
+----
+- lib/mailchimp/data-format_class.php
+
+
+===========================
+Version 1.1.3 (18/08/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- Bug fix for the detection of which list /store / language / customer group have been synchronized manually, and authorize the automatic synchro starting
+
+Files
+----
+- lib/mailchimp/mailchimp-facade_class.php
+
+
+===========================
+Version 1.1.2 (01/08/2017)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- Bug fix on the checkout URL around the PHP variable which still was the old name before the module version 1.1.0
+
+Files
+----
+- lib/mailchimp/data-format_class.php
+
+
+===========================
+Version 1.1.1 (24/07/2017)|
+===========================
+Added
+-----
+- Added the customer address (via the back-office synching or the action hook)
+
+Fixed
+-----
+- Test on the total real paid and if it's empty due to the payment's status not considered as valid then we take the total paid
+
+Files
+----
+- lib/mailchimp/data-format_class.php
+
+
+===========================
+Version 1.1.0 (03/07/2017)|
+===========================
+Added
+-----
+- New way to handle list / store per language but also per customer group to distinct B2B and B2C. Now many lists can use the same language according to the customer group related to are different
+- Dashboard to check synchronized data until 3 months
+- Diagnostic tool to check one by one every type of data as order, product, member, customer and cart and see if it has been synchronized well into MC
+- Tool to exclude some domain names for customers
+- spécifier le nom de la catégorie ou le fil d'ariane pour le type produit
+
+Fixed
+-----
+- Bug fix for the product URL in the good language via the manual synching
+
+Files
+----
+- almost all files have been changed
+
+
+===========================
+Version 1.0.5 (27/02/2017)|
+===========================
+Added
+-----
+- New translation IT / ES / DE
+
+Fixed
+-----
+- Force the number of list return by Mailchimp ( by default the function returned 10 we forced with 50 )
+
+Files
+----
+- lib/mailchimp/mailchimp-facade_class.php
+
+
+===========================
+Version 1.0.4 (12/24/2016)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- Changed the way to get the content of the cookie object with the getAll() method because it does exist from PS version 1.6.1.0 only, so we changed it for the oldest versions until the version 1.5.3.1
+
+Files
+----
+- lib/hook/hook-base_class.php
+
+===========================
+Version 1.0.3 (12/20/2016)|
+===========================
+Added
+-----
+- Added the system to handle the mc_cid to track each e-mail click when at last an order is placed.
+- Added the cross-device compatibility by adding a temporary module's URL to redirect on the checkout URL with the good parameters.
+
+Fixed
+-----
+- Added the real order date add because MailChimp requires it when you want to tracking your e-mail clicks and conversion from them.
+
+Files
+----
+- index.php
+- lib/admin/AdminUpdate.php
+- lib/hook/hook-action_class.php
+- lib/Dao.php
+- lib/mailchimp/ecommerce-order_class.php
+- lib/mailchimp/mailchimp-interface_class.php
+
+===========================
+Version 1.0.2 (12/13/2016)|
+===========================
+Added
+-----
+- N/A
+
+Fixed
+-----
+- The product id when there isn't any combination is wrong, we forgot to concatenate it with the V1 for the first variant in the back-office product catalog synchro and during the product update action and the save cart action and the add order action.
+
+Files
+----
+- lib/admin/AdminUpdate.php
+- lib/hook/hook-action_class.php
+
+
+===========================
+Version 1.0.1 (11/21/2016)|
+===========================
+Added
+-----
+- Added JS controls in the store creation form.
+- Added the "past orders" tab, in order to offer customers to import their past orders according to a period and order statuses.
+
+Fixed
+-----
+- N/A
+
+Files
+----
+- N/A
+
+
+===========================
+Version 1.0.0 (07/11/2016)|
+===========================
+Added
+-----
+- Original release
+
+Fixed
+-----
+- N/A
+
+Files
+----
+- N/A

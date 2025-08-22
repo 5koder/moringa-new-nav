@@ -1,0 +1,21 @@
+{
+  "name": "iqit-commerce/iqitproductvariants",
+  "authors": [
+    {
+      "name": "Marcin Szperlik",
+      "email": "support@iqit-commerce.com"
+    },
+    {
+      "name": "IQIT-commerce.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PrestaShop\\Module\\IqitProductVariants\\": "src/"
+    },
+    "config": {
+      "prepend-autoloader": false
+    },
+    "type": "prestashop-module"
+  }
+}

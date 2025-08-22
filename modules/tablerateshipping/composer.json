@@ -1,0 +1,8 @@
+{
+    "config": {
+        "vendor-dir": "libraries"
+    },
+    "require": {
+        "symfony/expression-language": "^3.0"
+    }
+}

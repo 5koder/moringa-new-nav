@@ -1,0 +1,34 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+
+.exit-popup-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: none;
+    border-radius: 0;
+    background-color: rgba(0,0,0,.7);
+    text-align: left;
+ }
+ .exit-popup-wrapper {
+    position: relative;
+    top: 10%;
+    bottom: 10%;
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 40px;
+    background-color: #f6f9ff;
+}
+.exit-popup-close.btn-close-custom {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -1,0 +1,7 @@
+services:
+    prestashop.module.iqitproductflags.repository.flags_repository:
+        class: PrestaShop\Module\IqitProductFlags\Repository\FlagRepository
+        public: true
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - PrestaShop\Module\IqitProductFlags\Entity\IqitProductFlag

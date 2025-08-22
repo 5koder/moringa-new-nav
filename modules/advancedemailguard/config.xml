@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>advancedemailguard</name>
+    <displayName><![CDATA[Advanced Anti Spam Google reCAPTCHA]]></displayName>
+    <version><![CDATA[4.2.0]]></version>
+    <description><![CDATA[Protect your shop against spam and bots.]]></description>
+    <author><![CDATA[ReduxWeb]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

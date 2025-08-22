@@ -1,0 +1,44 @@
+iqitproductflags:
+    path: /iqitproductflags/configuration
+    methods: [GET]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::index'
+        _legacy_controller: 'AdminIqitProductFlags'
+
+iqitproductflags_configuration_save:
+    path: /iqitproductflags/configuration
+    methods: [POST, PATCH]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::saveConfiguration'
+
+iqitproductflags_create:
+    path: /iqitproductflags/contentblock/create
+    methods: [GET, POST]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::create'
+
+iqitproductflags_edit:
+    path: /iqitproductflags/contentblock/{contentBlockId}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::edit'
+
+iqitproductflags_delete:
+    path: /iqitproductflags/contentblock/{contentBlockId}/delete
+    methods: [GET, POST]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::delete'
+
+iqitproductflags_toggle_status:
+    path: /iqitproductflags/contentblock/{contentBlockId}/toggle
+    methods: [POST]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::toggleStatus'
+
+iqitproductflags_update_positions:
+    path: /iqitproductflags/contentblock/positions
+    methods: [POST]
+    defaults:
+        _controller: 'PrestaShop\Module\IqitProductFlags\Controller\IqitProductFlagsController::updatePositions'
+
+

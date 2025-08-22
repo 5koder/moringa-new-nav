@@ -1,0 +1,15 @@
+# https://devdocs.prestashop.com/8/modules/concepts/services/
+services:
+    PrestaShop\Module\IqitProductVariants\Repository\ProductVariantsRepository:
+        class: PrestaShop\Module\IqitProductVariants\Repository\ProductVariantsRepository
+        public: true
+        arguments:
+            - '@=service("prestashop.adapter.legacy.context").getContext().language.id'
+            - '@=service("prestashop.adapter.legacy.context").getContext().shop.id'
+
+    PrestaShop\Module\IqitProductVariants\Presenter\ProductVariantsPresenter:
+        class: PrestaShop\Module\IqitProductVariants\Presenter\ProductVariantsPresenter 
+        public: true
+        autowire: true
+        arguments:
+            - '@=service("prestashop.adapter.legacy.context")'

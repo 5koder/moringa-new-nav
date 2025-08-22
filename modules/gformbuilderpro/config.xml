@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>gformbuilderpro</name>
+    <displayName><![CDATA[Form Builder Pro - Customizable any kind of Form]]></displayName>
+    <version><![CDATA[2.0.1]]></version>
+    <description><![CDATA[Allow you to create any kind of forms for your website with Bootstrap &amp; Responsive.]]></description>
+    <author><![CDATA[Globo Jsc]]></author>
+    <tab><![CDATA[content_management]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

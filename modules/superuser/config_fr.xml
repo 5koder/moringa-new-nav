@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>superuser</name>
+	<displayName><![CDATA[Super User]]></displayName>
+	<version><![CDATA[2.3.2]]></version>
+	<description><![CDATA[Log in to your shop as one of your customers!]]></description>
+	<author><![CDATA[idnovate]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
